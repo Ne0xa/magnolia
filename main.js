@@ -5,7 +5,19 @@ const contents = document.querySelectorAll('.tab-content')
 tabs.forEach(tab => {
     tab.addEventListener('click', () => {
         contents.forEach(c => c.classList.remove('active'))
-        document.getElementById(tab.dataset.tab).classList.add('active')
+
+        const target = document.getElementById(tab.dataset.tab)
+        target.classList.add('active')
+
+
+        if (tab.dataset.tab === "cards") {
+            document.querySelectorAll('#cards .card').forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('show');
+                }, index * 100);
+            });
+        }
+
     })
 })
 
@@ -16,8 +28,16 @@ const swiper = new Swiper(".mySwiper", {
     pagination: { el: ".swiper-pagination", clickable: true }
 });
 
-// Cards
+// GLightBox
+const lightbox = GLightbox({
+    selector: '.glightbox',
+    touchNavigation: true,
+    loop: true,
+    autoplayVideos: false
+});
 
+
+// Cards
 document.querySelectorAll('.card').forEach(card => {
     const state = {
         tiltX: 0,
@@ -96,17 +116,13 @@ form.addEventListener('submit', function(event) {
     // password
     let password = document.querySelector('#password')
     let passCheck = new RegExp(
-        "^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{6,})\S$"
+        "^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$"
     )
-
-    if(password.value.length < 6 || passCheck.test(password.value) == false) {
-        console.log("Mot de passe invalide")
-        password.classList.remove('success')
-        password.classList.add('error')
-    }
-    else {
-        console.log("Mot de passe valide")
-        password.classList.remove('error')
-        password.classList.add('success')
+    if (!passCheck.test(password.value)) {
+        password.classList.add('error');
+        password.classList.remove('success');
+    } else {
+        password.classList.add('success');
+        password.classList.remove('error');
     }
 })

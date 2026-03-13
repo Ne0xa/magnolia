@@ -10,6 +10,10 @@
         href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
     />
 
+    <!-- GLightbox CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+
+
     <link rel="stylesheet" href="style.css">
     <title>Magnolia</title>
 
@@ -36,9 +40,21 @@
             <!-- Swiper -->
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img class="swipe-img" src="https://images.pokemontcg.io/sv3pt5/1_hires.png" alt=""></div>
-                    <div class="swiper-slide"><img class="swipe-img" src="https://images.pokemontcg.io/sv3pt5/4_hires.png" alt=""></div>
-                    <div class="swiper-slide"><img class="swipe-img" src="https://images.pokemontcg.io/sv3pt5/7_hires.png" alt=""></div>
+                    <div class="swiper-slide">
+                        <a href="https://images.pokemontcg.io/sv3pt5/1_hires.png" class="glightbox">
+                            <img class="swipe-img" src="https://images.pokemontcg.io/sv3pt5/1_hires.png" alt="">
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="https://images.pokemontcg.io/sv3pt5/4_hires.png" class="glightbox">
+                            <img class="swipe-img" src="https://images.pokemontcg.io/sv3pt5/4_hires.png" alt="">
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="https://images.pokemontcg.io/sv3pt5/7_hires.png" class="glightbox">
+                            <img class="swipe-img" src="https://images.pokemontcg.io/sv3pt5/7_hires.png" alt="">
+                        </a>
+                    </div>
                 </div>
 
                 <div class="swiper-pagination"></div>
@@ -255,22 +271,22 @@
 
             <form action="" method="POST" enctype="multipart/form-data">
                 <div>
-                    <label for="pseudo">name</label>
+                    <label for="pseudo">Name</label>
                     <input type="text" name="pseudo" id="pseudo">
                 </div>
 
                 <div>
-                    <label for="email">email</label>
+                    <label for="email">Email</label>
                     <input type="email" name="email" id="email">
                 </div>
 
                 <div>
-                    <label for="password">mot de passe</label>
+                    <label for="password">Mot de passe</label>
                     <input type="password" name="password" id="password">
                 </div>
 
                 <div>
-                    <label for="password2">entrer à nouveau le mot de passe</label>
+                    <label for="password2">Entrer à nouveau le mot de passe</label>
                     <input type="password" name="password2" id="password2">
                 </div>
 
@@ -281,6 +297,7 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
