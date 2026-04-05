@@ -1,0 +1,17 @@
+{
+    "name": "neoxa/magnolia-backend",
+    "autoload": {
+        "psr-4": {
+            "Neoxa\\MagnoliaBackend\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ne0xa",
+            "email": "finebenjamin.e@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.10"
+    }
+}
