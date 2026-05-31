@@ -104,7 +104,9 @@ window.addEventListener("load", function () {
     new Swiper(".mySwiper", {
       loop: true,
       autoplay: { delay: 2500 },
-      pagination: { el: ".swiper-pagination", clickable: true },
+      pagination: { 
+        el: ".swiper-pagination", 
+        clickable: true },
     });
   } catch (e) {
     console.warn("Swiper:", e);
@@ -112,7 +114,10 @@ window.addEventListener("load", function () {
 
   // GLightBox
   try {
-    GLightbox({ selector: ".glightbox", touchNavigation: true, loop: true });
+    GLightbox({ 
+      selector: ".glightbox", 
+      touchNavigation: true, 
+      loop: true });
   } catch (e) {
     console.warn("GLightbox:", e);
   }
@@ -232,42 +237,6 @@ window.addEventListener("load", function () {
     });
 });
 
-// Tabs
-const tabs = document.querySelectorAll(".tab-btn");
-const contents = document.querySelectorAll(".tab-content");
-
-tabs.forEach((tab) => {
-  tab.addEventListener("click", () => {
-    contents.forEach((c) => c.classList.remove("active"));
-
-    const target = document.getElementById(tab.dataset.tab);
-    target.classList.add("active");
-
-    if (tab.dataset.tab === "cards") {
-      document.querySelectorAll("#cards .card").forEach((card, index) => {
-        setTimeout(() => {
-          card.classList.add("show");
-        }, index * 100);
-      });
-    }
-  });
-});
-
-// SWIPER
-const swiper = new Swiper(".mySwiper", {
-  loop: true,
-  autoplay: { delay: 2500 },
-  pagination: { el: ".swiper-pagination", clickable: true },
-});
-
-// GLightBox
-const lightbox = GLightbox({
-  selector: ".glightbox",
-  touchNavigation: true,
-  loop: true,
-  autoplayVideos: false,
-});
-
 // Cards
 document.querySelectorAll(".card").forEach((card) => {
   const state = {
@@ -325,33 +294,6 @@ document.querySelectorAll(".card").forEach((card) => {
 
   card.addEventListener("mousemove", handleMouseMove);
   card.addEventListener("mouseleave", handleMouseLeave);
-});
-
-// Formulaire
-
-let form = document.querySelector("form");
-form.addEventListener("submit", function (event) {
-  event.preventDefault();
-
-  // email
-  let email = document.querySelector("#email");
-
-  if (email.value == "") {
-    console.log("invalide");
-  } else {
-    email.classList.add("success");
-  }
-
-  // password
-  let password = document.querySelector("#password");
-  let passCheck = new RegExp("^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$");
-  if (!passCheck.test(password.value)) {
-    password.classList.add("error");
-    password.classList.remove("success");
-  } else {
-    password.classList.add("success");
-    password.classList.remove("error");
-  }
 });
 
 // API
